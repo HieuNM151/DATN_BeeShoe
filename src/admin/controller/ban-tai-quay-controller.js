@@ -848,50 +848,50 @@ myApp.controller(
       $window.localStorage.removeItem("soLuongCoSan");
     };
 
-    setTimeout(() => {
-      $scope.generatePDF = function () {
-        var token = $window.localStorage.getItem("token");
+    // setTimeout(() => {
+    //   $scope.generatePDF = function () {
+    //     var token = $window.localStorage.getItem("token");
 
-        var config = {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        };
+    //     var config = {
+    //       headers: {
+    //         Authorization: "Bearer " + token,
+    //       },
+    //     };
 
-        $http
-          .get("http://localhost:8080/api/v1/pdf/pdf/generate/" + id, {
-            responseType: "arraybuffer",
-            headers: config.headers, // Thêm headers vào request
-          })
-          .then(function (response) {
-            var file = new Blob([response.data], {
-              type: "application/pdf",
-            });
-            var fileURL = URL.createObjectURL(file);
-            var a = document.createElement("a");
-            a.href = fileURL;
-            a.download =
-              "pdf_" +
-              new Date().toISOString().slice(0, 19).replace(/:/g, "-") +
-              ".pdf";
-            document.body.appendChild(a);
-            a.click();
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "In thành công",
-              showConfirmButton: false,
-              timer: 1500,
-              customClass: {
-                popup: "small-popup", // Add a class to the message
-              },
-            }).then(() => {
-              $scope.removeItem();
-              $window.location.reload();
-            });
-          });
-      };
-    }, 2000);
+    //     $http
+    //       .get("http://localhost:8080/api/v1/pdf/pdf/generate/" + id, {
+    //         responseType: "arraybuffer",
+    //         headers: config.headers, // Thêm headers vào request
+    //       })
+    //       .then(function (response) {
+    //         var file = new Blob([response.data], {
+    //           type: "application/pdf",
+    //         });
+    //         var fileURL = URL.createObjectURL(file);
+    //         var a = document.createElement("a");
+    //         a.href = fileURL;
+    //         a.download =
+    //           "pdf_" +
+    //           new Date().toISOString().slice(0, 19).replace(/:/g, "-") +
+    //           ".pdf";
+    //         document.body.appendChild(a);
+    //         a.click();
+    //         Swal.fire({
+    //           position: "top-end",
+    //           icon: "success",
+    //           title: "In thành công",
+    //           showConfirmButton: false,
+    //           timer: 1500,
+    //           customClass: {
+    //             popup: "small-popup", // Add a class to the message
+    //           },
+    //         }).then(() => {
+    //           $scope.removeItem();
+    //           $window.location.reload();
+    //         });
+    //       });
+    //   };
+    // }, 2000);
 
     //TODO:thanh toán hóa đơn
     setTimeout(() => {

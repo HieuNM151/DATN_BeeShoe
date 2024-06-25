@@ -1,14 +1,14 @@
 <div class="card overflow-hidden" style="width: 1152px; height: 130px">
   <div class="row" style="padding-top: 30px; padding-left: 80px">
     <div class="col-md-9">
-      <input class="form-control" placeholder="Tìm kiếm hóa đơn" style="width: 100%" ng-model="searchQuery" />
+      <input class="form-control"  placeholder="Tìm kiếm hóa đơn" style="width: 100%" ng-model="searchQuery" />
     </div>
     <div class="col-md-3">
-      <button type="button" class="btn btn-primary" ng-click="searchHoaDon()">
+      <button type="button" style="background: linear-gradient(96deg, #f15a22 32.96%, #fdb913 100.17%);" class="btn btn-danger" ng-click="searchHoaDon()">
         Tìm kiếm
       </button>
       <button type="button" class="btn btn-warning" ng-click="clearSearch()">
-        Làm mới
+        <img src="/assets/images/reload.png" style="height: 20px;">
       </button>
     </div>
   </div>
@@ -21,7 +21,7 @@
         <option value="1">Online</option>
       </select>
     </div>
-    <div ng-show="isAdmin || role === 'ADMIN'" class="col-md-4" style="margin-left: -85px;">
+    <!-- <div ng-show="isAdmin || role === 'ADMIN'" class="col-md-4" style="margin-left: -85px;">
       <span> Nhân viên:</span>
       <select style="color: #e6774e" class="custom-select" ng-model="selectedTenNhanVien"
         ng-change="filterHoaDonByNguoiXacNhan()">
@@ -31,8 +31,7 @@
           {{nhanVien.tenNhanVien}}
         </option>
       </select>
-    </div>
-
+    </div> -->
   </div>
 </div>
 <div class="card overflow-hidden">
