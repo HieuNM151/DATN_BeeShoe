@@ -725,6 +725,59 @@ myApp.controller(
       $scope.showTransaction();
     }
 
+
+    $scope.newTransaction = {}; // Khởi tạo newTransaction
+    $scope.listTransaction = []; // Khởi tạo listTransaction
+    
+    $scope.createTransaction2 = function () {
+      // Gán giá trị cho newTransaction.soTien
+      $scope.newTransaction.soTien = $scope.tienCuoiCungCuaDon + ($scope.tienGiao ? +$scope.tienGiao : 0);
+    
+      // Kiểm tra nếu soTien bằng 0 thì không gọi API
+      if ($scope.newTransaction.soTien === 0) {
+        return; // Thoát khỏi hàm mà không làm gì thêm
+      }
+    
+      Swal.fire({
+        title: "Thanh toán tiền mặt?",
+        text: "Bạn có muốn thanh toán không?",
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Hủy bỏ", // Thay đổi từ "Cancel" thành "Hủy bỏ"
+        cancelButtonColor: "#d33",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Xác nhận", // Thay đổi từ "Yes" thành "Có"
+        reverseButtons: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          var token = $window.localStorage.getItem("token");
+          var config = {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          };
+    
+          $http
+            .post(
+              "http://localhost:8080/api/v1/transaction/create?idHoaDon=" + id + "&id=" + idKhach,
+              $scope.newTransaction,
+              config
+            )
+            .then(function (response) {
+              $scope.listTransaction.push(response.data);
+              $scope.showTransaction();
+              // $scope.newTransaction.soTien = "";
+              $location.path("/order-counter");
+            });
+        }
+      });
+    };
+    
+    $scope.queryParams = $location.search(); // Lấy các tham số từ URL
+    
+    
+
+
     $scope.newTransaction = {};
     setTimeout(() => {
       $scope.createTransaction = function () {

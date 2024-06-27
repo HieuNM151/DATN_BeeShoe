@@ -2,10 +2,10 @@ myApp.config(function ($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix("");
 
   $routeProvider
-    // .when("/dashboard", {
-    //   templateUrl: "./pages/thong-ke.html",
-    //   controller: "thongKeController",
-    // })
+    .when("/dashboard", {
+      templateUrl: "./pages/thong-ke.html",
+      controller: "thongKeController",
+    })
     .when("/admin/login", {
       templateUrl: "./pages/authentication-login.html",
       controller: "loginController",

@@ -83,13 +83,6 @@ myApp.controller("hoaDonController", function ($http, $scope, $window) {
     });
   };
 
-
-  // Hàm lọc dựa trên trạng thái và loại đơn
-  function filterHoaDonByLoaiDon(loaiDon) {
-    // Sử dụng trạng thái mặc định (ví dụ: 1) hoặc trạng thái của bạn.
-    var trangThai = 1;
-  }
-
   $scope.clearSearch = function () {
     $scope.searchQuery = "";
     $scope.fetchHoaDon(
@@ -130,8 +123,9 @@ myApp.controller("hoaDonController", function ($http, $scope, $window) {
   };
 
   $scope.setDefaultTrangThai = function () {
-    // Đặt giá trị mặc định cho selectedTrangThai
+    // Đặt giá trị mặc định cho selectedTrangThai và selectedLoaiDon
     $scope.selectedTrangThai = 1;
+    $scope.selectedLoaiDon = 1;
     // Gọi hàm fetchHoaDon để hiển thị danh sách theo giá trị mặc định
     $scope.fetchHoaDon(
       $scope.selectedTrangThai,
@@ -141,8 +135,9 @@ myApp.controller("hoaDonController", function ($http, $scope, $window) {
     );
   };
 
-  $scope.openCity = function (trangThai) {
+  $scope.openCity = function (trangThai, loaiDon) {
     $scope.selectedTrangThai = trangThai;
+    $scope.selectedLoaiDon = loaiDon || "";
     $scope.pageNumber = 0;
     $scope.fetchHoaDon(
       $scope.selectedTrangThai,
@@ -261,4 +256,7 @@ myApp.controller("hoaDonController", function ($http, $scope, $window) {
         );
       });
   };
+
+  // Khởi tạo mặc định
+  $scope.setDefaultTrangThai();
 });
