@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="form-group col-md-5">
+          <div class="form-group col-md-6">
             <div class="form-outline">
               <input
                 type="search"
@@ -14,17 +14,14 @@
             </div>
           </div>
           <!-- form-group -->
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-3">
             <div class="form-outline">
-              <button class="btn btn-primary" ng-click="findByNameOrCode()">
+              <button class="btn btn-danger" ng-click="findByNameOrCode()" style="background: linear-gradient(96deg, #f15a22 32.96%, #fdb913 100.17%);">
                 Tìm kiếm
               </button>
               <button class="btn btn-warning" ng-click="lamMoiSanPham()">
-                Làm mới
+                <img src="/assets/images/reload.png" style="height: 20px;">
               </button>
-              <a href="#/product/history" class="btn btn-danger"
-                >Lịch sử thao tác
-              </a>
             </div>
           </div>
           <!-- form-group -->
@@ -39,7 +36,7 @@
           <div class="form-group col-md-4 mt-3">
             <span>Danh mục: </span>
             <select
-              style="color: green"
+              style="color: #f15a22"
               class="custom-select"
               ng-model="danhMuc"
               ng-change="findByDanhMuc()">
@@ -53,7 +50,7 @@
           <div class="form-group col-md-4 mt-3">
             <span>Thương hiệu: </span>
             <select
-              style="color: green"
+              style="color: #f15a22"
               class="custom-select"
               ng-model="thuongHieu"
               ng-change="findByThuongHieu()">
@@ -69,7 +66,7 @@
           <div class="form-group col-md-4 mt-3">
             <span>Xuất xứ: </span>
             <select
-              style="color: green"
+              style="color: #f15a22"
               class="custom-select"
               ng-model="xuatXu"
               ng-change="findByXuatXu()">
@@ -83,7 +80,7 @@
           <div class="form-group col-md-4 mt-3">
             <span>Kiểu đế: </span>
             <select
-              style="color: green"
+              style="color: #f15a22"
               class="custom-select"
               ng-model="kieuDe"
               ng-change="findByKieuDe()">
@@ -97,7 +94,7 @@
           <div class="form-group col-md-4 mt-3">
             <span>Trạng thái: </span>
             <select
-              style="color: green"
+              style="color: #f15a22"
               class="custom-select"
               ng-model="status"
               ng-change="findByStatus()">
@@ -116,7 +113,7 @@
       <div ng-if="listSanPham.length !== 0">
         <table class="table table-borderless table-hover mt-3">
           <thead>
-            <tr style="border: 1px solid #ccc; background-color: lightskyblue">
+            <tr style="background: linear-gradient(96deg, #e6774e 32.96%, #fdb913 100.17%);">
               <th>STT</th>
               <th>Ảnh</th>
               <th>Mã sản phẩm</th>

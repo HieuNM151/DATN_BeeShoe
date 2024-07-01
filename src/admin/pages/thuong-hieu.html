@@ -3,15 +3,15 @@
     <div class="card shadow mb-4">
       <div class="card-body">
         <div class="row">
-          <div class="form-group col-md-4 mt-4">
+          <div class="form-group col-md-6 mt-4">
             <div class="form-outline">
               <input type="search" id="form1" class="form-control" ng-model="searchQuery" placeholder="Tìm kiếm thương hiệu" />
             </div>
           </div> <!-- form-group -->
 
-          <div class="form-group col-md-4 mt-4">
+          <div class="form-group col-md-3 mt-4">
             <span>Trạng thái: </span>
-            <select style="color: green" class="custom-select"  ng-model="selectedTrangThai" ng-change="onTrangThaiChange()"
+            <select style="color: #f15a22" class="custom-select"  ng-model="selectedTrangThai" ng-change="onTrangThaiChange()"
               id="simple-select2">
               <option value="">Tất cả</option>
               <option value="1">Hoạt động</option>
@@ -19,14 +19,13 @@
             </select>
           </div> <!-- form-group -->
 
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-3">
             <label for="simple-select2">ㅤ</label>
             <div class="form-outline">
-              <button class="btn btn-primary" ng-click="searchThuongHieu()">Tìm kiếm</button>
-              <button class="btn btn-warning" ng-click="clearSearch()">Làm mới</button>
-              <a href="#/brand/history" class="btn btn-danger">
-                Lịch sử thao tác
-              </a>
+              <button class="btn btn-danger" style="background: linear-gradient(96deg, #f15a22 32.96%, #fdb913 100.17%);" ng-click="searchThuongHieu()">Tìm kiếm</button>
+              <button class="btn btn-warning" ng-click="clearSearch()">
+                <img src="/assets/images/reload.png" style="height: 20px;">
+              </button>
             </div>
           </div> <!-- form-group -->
         </div>
@@ -52,7 +51,7 @@
         </div>
         <table class="table table-borderless table-hover">
           <thead>
-            <tr style="background-color: lightskyblue">
+            <tr style="background: linear-gradient(96deg, #f15a22 32.96%, #fdb913 100.17%);">
               <th>
                 STT
               </th>
@@ -132,17 +131,17 @@
       <div class="modal-header">
         <h5 class="modal-title ard-title fw-semibold">Thêm mới thương hiệu</h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body row">
 
-        <div class="form-group">
+        <div class="form-group col-6">
           <span class="header-title"><span style="color: red">*</span><span>Tên thương hiệu:</span></span>
           <input type="text" class="form-control" id="brandName" ng-model="newThuongHieu.tenThuongHieu"
             placeholder="Nhập tên thương hiệu" />
           <span style="color: red">{{errortenThuongHieu}}</span>
         </div>
-        <div class="form-group">
+        <div class="form-group col-6">
           <span class="header-title"><span style="color: red">*</span><span>Trạng thái:</span></span>
-          <select style="color: green" class="custom-select" id="status" ng-model="newThuongHieu.trangThai">
+          <select style="color: #f15a22" class="custom-select" id="status" ng-model="newThuongHieu.trangThai">
             <option value="">Vui lòng chọn</option>
             <option value="1">Hoạt động</option>
             <option value="2">Ngừng hoạt động</option>
@@ -168,16 +167,16 @@
       <div class="modal-header">
         <h5 class="modal-title ard-title fw-semibold">Chỉnh sửa thương hiệu</h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body row">
 
-        <div class="form-group">
+        <div class="form-group col-6">
           <span class="header-title"><span style="color: red">*</span><span>Tên thương hiệu:</span></span>
           <input type="text" class="form-control" id="brandName" placeholder="Nhập Tên Thương Hiệu"
             ng-model="selectedThuongHieu.tenThuongHieu" />
         </div>
-        <div class="form-group">
+        <div class="form-group col-6">
           <span class="header-title"><span style="color: red">*</span><span>Trạng thái:</span></span>
-          <select style="color: green" class="custom-select" id="status" ng-model="selectedThuongHieu.trangThai">
+          <select style="color: #f15a22" class="custom-select" id="status" ng-model="selectedThuongHieu.trangThai">
             <option value="1">Hoạt động</option>
             <option value="2">Ngừng hoạt động</option>
           </select>

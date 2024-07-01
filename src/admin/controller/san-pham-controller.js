@@ -28,7 +28,7 @@ myApp.controller("sanPhamController", function ($http, $scope, $window) {
   getRole();
   $scope.listSanPham = [];
   $scope.pageNumber = 0;
-  $scope.pageSize = 20;
+  $scope.pageSize = 10;
   $scope.filterSanPham = function () {
     var token = $window.localStorage.getItem("token");
 
