@@ -459,10 +459,10 @@
                               style="margin-left: 10px">
                               Làm mới
                             </button>
-                            <button style="margin-left: 10px" type="button" class="btn btn-danger"
+                            <!-- <button style="margin-left: 10px" type="button" class="btn btn-danger"
                               data-bs-toggle="modal" data-bs-target="#exampleModal3">
                               Thêm khách hàng
-                            </button>
+                            </button> -->
                           </div>
                         </div>
                         <br />
@@ -668,9 +668,10 @@
                         Tiền mặt
                       </span>
                     </button>
-    
+                    <!-- ng-click="Vnpay(tienCuoiCungCuaDon + (tienGiao ? + tienGiao : 0))" -->
                     <button style="width: 49%;font-size: 14px;" class="btn btn-outline-warning"
-                    ng-click="Vnpay(tienCuoiCungCuaDon + (tienGiao ? + tienGiao : 0))">
+                   
+                    >
                       <img style="   
                      width: 50%;
                     transform: translateY(-2px);" src="https://sandbox.vnpayment.vn/paymentv2/Images/brands/logo.svg">
@@ -679,7 +680,9 @@
                   </div>
                   <div style="width: 100%;display: flex;justify-content: space-between;margin-top: 5px;">
                     <button style="width: 100%;font-size: 14px;padding: 15px;"
-                      class="btn btn-outline-warning" ng-click="choosePaymentMethod(2)" ng-if="listCart.length !== 0" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                      class="btn btn-outline-warning" 
+                      ng-click="choosePaymentMethod(2)" 
+                      ng-if="listCart.length !== 0" data-bs-toggle="modal" data-bs-target="#exampleModal5">
                       <span style="display: inline-block;transform: translateY(-5px);">
                         <i class="ti ti-cash"
                           style="font-size: 30px; transform: translateY(4px);display: inline-block;"></i>
@@ -730,8 +733,10 @@
                                         ng-click="createTransaction()">
                                         Tiền mặt
                                       </button>
+                                      <!-- ng-click="Vnpay(tienCuoiCungCuaDon + (tienGiao ? + tienGiao:0))" -->
                                       <button class="btn btn-primary" style="margin-left: 10px"
-                                        ng-click="Vnpay(tienCuoiCungCuaDon + (tienGiao ? + tienGiao:0))">
+                                        
+                                        >
                                         Chuyển khoản
                                       </button>
                                     </div>
@@ -924,7 +929,7 @@
                   </div>
                   <!-- modal voucher -->
                 </div>
-                <div class="omni-layout-card--section-section">
+                <!-- <div class="omni-layout-card--section-section">
                   <div class="omni-layout-card--item-stack-cover">
                     <div class="omni-layout-card--item-stack fill">
                       <span class="header-title">Giao hàng</span>
@@ -936,7 +941,7 @@
                       <label for="switch"></label>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <div class="omni-layout-card--section-section">
                   <div class="omni-layout-card--item-stack-cover">
                     <div class="omni-layout-card--item-stack fill">
