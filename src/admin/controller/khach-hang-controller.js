@@ -197,20 +197,14 @@ myApp.controller(
       $scope.isEmailValid = !!$scope.email;
       $scope.isDiaChiValid = !!$scope.diaChi;
       $scope.isTrangThaiValid = !!$scope.trangThai;
-
-      if ($scope.soDienThoai) {
-        $scope.isSoDienThoaiFormat = validateSoDienThoaiFormat(
-          $scope.soDienThoai
-        );
-      }
+    
       if ($scope.email) {
         $scope.isEmailFormat = validateEmailFormat($scope.email);
       }
-
+    
       if (
         !$scope.isHoTenValid ||
         !$scope.isNgaySinhValid ||
-        !$scope.isSoDienThoaiValid ||
         !$scope.isGioiTinhValid ||
         !$scope.isEmailValid ||
         !$scope.isDiaChiValid ||
@@ -226,17 +220,16 @@ myApp.controller(
         return;
       }
       var token = $window.localStorage.getItem("token");
-
+    
       var config = {
         headers: {
           Authorization: "Bearer " + token,
         },
       };
-
+    
       $http
         .get(
-          "http://localhost:8080/api/ql-khach-hang/find-by-so-dien-thoai?soDienThoai=" +
-          $scope.soDienThoai,
+          "http://localhost:8080/api/ql-khach-hang/find-by-so-dien-thoai?soDienThoai=" + $scope.soDienThoai,
           config
         )
         .then(function (response) {
@@ -247,11 +240,10 @@ myApp.controller(
           if (response.data === 0) {
             $scope.isSoDienThoaiIsPresent = true; // Số điện thoại OK
           }
-
+    
           $http
             .get(
-              "http://localhost:8080/api/ql-khach-hang/find-by-email?email=" +
-              $scope.email,
+              "http://localhost:8080/api/ql-khach-hang/find-by-email?email=" + $scope.email,
               config
             )
             .then(function (response) {
@@ -262,8 +254,7 @@ myApp.controller(
               if (response.data === 0) {
                 $scope.isEmailIsPresent = true; // Email OK
               }
-
-
+    
               if ($scope.isEmailIsPresent == true || $scope.isSoDienThoaiIsPresent == true) {
                 var yourFile = document.getElementById("fileInput").files[0];
                 $http({
@@ -300,15 +291,22 @@ myApp.controller(
                 }).then(
                   function (response) {
                     $scope.selectedKhachHang.push(response.data);
+                    // Thêm console.log để kiểm tra response
+                    console.log(response.data);
+                    if (response.data.success) {
+                      $('#taoTaiKhoan').modal('hide');
+                    }
                   },
                   function (error) {
                     // Xử lý error ở đây
+                    console.error(error);
                   }
                 );
               }
             });
         });
     };
+    
 
     $scope.fetchKhachHangDetail = function (id) {
       fetchKhachHangDetail(id);

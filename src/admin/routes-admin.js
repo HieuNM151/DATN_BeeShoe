@@ -50,9 +50,17 @@ myApp.config(function ($routeProvider, $locationProvider) {
       templateUrl: "./pages/create-chuong-trinhkm.html",
       controller: "VoucherController",
     })
+    .when("/voucher/update/:id", {
+      templateUrl: "./pages/update-chuong-trinhkm.html",
+      controller: "voucherChiTietController",
+    })
     .when("/customer", {
       templateUrl: "./pages/khach-hang.html",
       controller: "khachHangController",
+    })
+    .when("/customer/update/:id", {
+      templateUrl: "./pages/update-khach-hang.html",
+      controller: "UpdateKhachHangController",
     })
     .when("/staff/update/:id", {
       templateUrl: "./pages/update-nhan-vien.html",

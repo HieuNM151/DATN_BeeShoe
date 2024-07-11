@@ -14,7 +14,7 @@
       </div>
       <div class="col-md-3 d-flex justify-content-start" style="text-align: end">
         <label class="form-label" style="margin-top: 11px">Trạng thái :</label>
-        <select style="color: green" class="custom-select" ng-model="selectedTrangThai" ng-change="onTrangThaiChange()">
+        <select style="color: #e6774e" class="custom-select" ng-model="selectedTrangThai" ng-change="onTrangThaiChange()">
           <option value="">Tất cả</option>
           <option value="1">Hoạt động</option>
           <option value="2">Nghỉ làm</option>
@@ -24,9 +24,6 @@
         <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Tạo nhân viên
         </button>
-        <a href="#/staff/history" class="btn btn-danger">
-          Lịch sử thao tác
-        </a>
       </div>
       <div class="modal-dialog modal-lg">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -59,14 +56,20 @@
                       </div>
                       <br />
                       <div class="form-group">
-                        <span class="header-title"><span style="color: red">*</span> <span>Số điện thoại</span></span>
+                        <span class="header-title">
+                          <span style="color: red">*</span>
+                          <span>Số điện thoại</span>
+                        </span>
                         <span ng-show="!isSoDienThoaiValid" style="color: red;">Vui lòng nhập vào số điện thoại</span>
-                        <span ng-show="!isSoDienThoaiFormat" style="color: red;">Số điện thoại sai định dạng, vui lòng
-                          xem
-                          lại</span>
+                        <span ng-show="!isSoDienThoaiFormat" style="color: red;">Số điện thoại sai định dạng, vui lòng xem lại</span>
                         <span ng-show="!isSoDienThoaiIsPresent" style="color: red;">Số điện thoại đã tồn tại</span>
-                        <input type="number" min="0" oninput="this.value = Math.max(0, this.value)" class="form-control"
-                          ng-model="soDienThoai" />
+                        <input 
+                          type="text" 
+                          pattern="^0[0-9]{9,10}$" 
+                          class="form-control" 
+                          ng-model="soDienThoai" 
+                          ng-pattern="/^0[0-9]{9,10}$/" 
+                        />
                       </div>
                       <br />
                       <div class="form-group">
@@ -156,7 +159,7 @@
     </style>
     <table class="table">
       <thead>
-        <tr style="background-color: lightskyblue">
+        <tr style="background: linear-gradient(96deg, #e6774e 32.96%, #fdb913 100.17%);">
           <th scope="col">STT</th>
           <th scope="col">Ảnh</th>
           <th scope="col">Mã nhân viên</th>

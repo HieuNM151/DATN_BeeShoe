@@ -185,12 +185,12 @@
       <div class="row">
         <div class="col-lg-6">
           <span class="header-title"><span style="color: red">*</span>
-            <span>Mã voucher</span></span>
+            <span>Mã giảm giá</span></span>
           <input type="text" class="next-input" ng-model="voucherchitiet.maVoucher" placeholder="Nhập mã khuyến mãi" />
         </div>
         <div class="col-lg-6">
           <span class="header-title"><span style="color: red">*</span>
-            <span>Tên voucher</span></span>
+            <span>Tên giảm giá</span></span>
           <input type="text" class="next-input" ng-model="voucherchitiet.tenVoucher"
             placeholder="Nhập tên khuyến mãi" />
         </div>
@@ -270,7 +270,7 @@
           {{ voucherchitiet.ngayKetThuc == null ?
           "..." : voucherchitiet.ngayKetThuc | date:'MM/dd/yyyy h:mm:ss a'}}</span>
         <h6 style="padding-left: 10px; padding-top: 10px;">Áp dụng cho đơn hàng</h6>
-        <span style="padding-left: 10px;">*Số lượng voucher đã dùng : {{voucherchitiet.soLuongDung == null ? 0 :
+        <span style="padding-left: 10px;">*Số lượng giảm giá đã dùng : {{voucherchitiet.soLuongDung == null ? 0 :
           voucherchitiet.soLuongDung
           }}</span>
         <br>

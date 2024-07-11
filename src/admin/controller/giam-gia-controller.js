@@ -545,7 +545,7 @@ myApp.controller(
     setTimeout(() => {
       $scope.themKhuyenMai = function () {
         Swal.fire({
-          title: "Bạn có muốn thêm khuyến mãi không?",
+          title: "Bạn có muốn thêm không?",
           text: "",
           icon: "question",
           showCancelButton: true,
@@ -717,7 +717,7 @@ myApp.controller(
           },
         };
         Swal.fire({
-          title: "Bạn có muốn chuyển trạng thái khuyến mãi này không?",
+          title: "Bạn có muốn chuyển trạng thái này không?",
           text: "",
           icon: "question",
           showCancelButton: true,
