@@ -314,17 +314,8 @@
 
     .abc {
       display: block;
-      width: 170px;
       height: 40px;
-      line-height: 40px;
-      font-size: 15px;
-      text-decoration: none;
-      color: #000000;
-      border: 1px solid #000000;
-      letter-spacing: 2px;
-      text-align: center;
-      position: relative;
-      transition: all .35s;
+      margin-top: 20px;
     }
 
     .abc span {
@@ -332,7 +323,7 @@
       z-index: 2;
     }
 
-    .abc:after {
+    /* .abc:after {
       position: absolute;
       content: "";
       top: 0;
@@ -350,8 +341,10 @@
     .abc:hover {
       font-weight: 500;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
+    } */
+    span {
+    color: #FFF;
+  }
     .product__discount__percent {
       position: absolute;
       margin-top: 10px;
@@ -386,7 +379,7 @@
         <div class="col-lg-6">
           <nav class="header__menu">
             <ul>
-              <li >
+              <li>
                 <a href="#/home">Trang chủ</a>
               </li>
               <li class="active">
@@ -396,12 +389,12 @@
           </nav>
         </div>
         <div class="col-lg-3">
-          <div class="header__cart">
+          <div class="header__cart">Giỏ hàng
             <ul>
               <li class="open-cart">
                 <a href="#/check-out"><i class="fa fa-shopping-bag"></i>
                   <span>{{quantity_all.tongSoLuong}}</span></a>
-                <div class="container-cart" style="position: absolute; z-index: 9999; right: 70px;">
+                <!-- <div class="container-cart" style="position: absolute; z-index: 9999; right: 70px;">
                   <div class="shopping-cart" style="max-height: 270px;overflow-y: auto;">
                     <div class="row" ng-repeat="product in products">
                       <div class="col-md-4" style="margin-top: 5px; margin-bottom: 5px">
@@ -413,7 +406,8 @@
                         <span style="font-size: 0.7em; margin: 0">{{product.tensanpham}}</span>
                         <div ng-show="product.dongiakhigiam != null">
                           {{product.dongiakhigiam | number}}đ
-                          <span style="text-decoration: line-through;color: crimson"><strike> {{product.giaban | number}}đ <br></strike> </span>
+                          <span style="text-decoration: line-through;color: crimson"><strike> {{product.giaban |
+                              number}}đ <br></strike> </span>
                         </div>
                         <div ng-show="product.dongiakhigiam == null">
                           {{product.giaban | number}}đ
@@ -432,14 +426,14 @@
                       <span style="font-weight: bolder;" class="main-color-text">Tổng tiền:</span>
                     </div>
                     <div class="col-md-3">
-                      <span
-                        style="color: rgb(91, 80, 80); font-weight: bolder;margin-left: -20px;">{{totalAmount | number}}đ</span>
+                      <span style="color: rgb(91, 80, 80); font-weight: bolder;margin-left: -20px;">{{totalAmount |
+                        number}}đ</span>
                     </div>
                   </div>
                   <a href="#/check-out" style="width: 80%; margin-left: 30px;" class="button">Thanh toán</a>
-                </div>
+                </div> -->
               </li>
-              <li class="account-hover" ng-controller="loginCutomController">
+              <li class="account-hover" ng-controller="loginCutomController">Tài khoản
                 <div class="header__top__right__auth">
                   <a href="#"><i class="fa fa-user">{{ loggedInUsername }}</i></a>
                   <div class="account-form">
@@ -455,11 +449,11 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">Đăng nhập</p>
                     </a>
-                    <a ng-click="logout()" href="#" class="d-flex align-items-center gap-2 dropdown-item"
+                    <button ng-click="logout()" href="#" class="d-flex align-items-center gap-2 dropdown-item"
                       ng-if="isLoggedIn">
                       <i class="fa fa-sign-out fs-6"></i>
                       <p class="mb-0 fs-3">Đăng xuất</p>
-                    </a>
+                      </a>
                   </div>
                 </div>
               </li>
@@ -536,7 +530,7 @@
               </select>
             </div>
             <div class="sidebar__item">
-              <h4 class="card-title fw-semibold"  ng-click="showKD = !showKD">
+              <h4 class="card-title fw-semibold" ng-click="showKD = !showKD">
                 Kiểu đế
                 <i ng-class="{'fal fa-chevron-down': showKD, 'fal fa-chevron-up': !showKD}" class="fa"
                   style="font-size: 0.7em;"></i>
@@ -549,7 +543,7 @@
               </select>
             </div>
             <div class="sidebar__item">
-              <h4 class="card-title fw-semibold"  ng-click="showXX = !showXX">
+              <h4 class="card-title fw-semibold" ng-click="showXX = !showXX">
                 Xuất xứ
                 <i ng-class="{'fal fa-chevron-down': showXX, 'fal fa-chevron-up': !showXX}" class="fa"
                   style="font-size: 0.7em;"></i>
@@ -564,7 +558,7 @@
           </div>
         </div>
         <div class="col-lg-9 col-md-7">
-          <div class="row featured__filter">
+          <!-- <div class="row featured__filter">
             <div class="col-lg-4 col-md-6 col-sm-6 custom-margin" ng-repeat="sp in listSanPhamShop">
               <div class="card">
                 <img ng-if="sp.imgage" src="/assets/ảnh giày/{{sp.imgage}}" class="card-img-top" alt="...">
@@ -572,8 +566,8 @@
                   <p ng-if="sp.tenSanPham" class="card-text">{{sp.tenSanPham}}</p>
                   <div class="text-center">
                     <h5 ng-show="sp.giaGiamGia != sp.giaBan">
-                      {{sp.giaGiamGia < 0 ? 0 : sp.giaGiamGia.toLocaleString('vi-VN')}}đ
-                      <strike style="color: red;">{{sp.giaBan.toLocaleString('vi-VN')}}đ</strike>
+                      {{sp.giaGiamGia < 0 ? 0 : sp.giaGiamGia.toLocaleString('vi-VN')}}đ <strike style="color: red;">
+                        {{sp.giaBan.toLocaleString('vi-VN')}}đ</strike>
                     </h5>
                     <h5 ng-show="sp.giaGiamGia == sp.giaBan">
                       {{sp.giaBan.toLocaleString('vi-VN')}}đ
@@ -584,17 +578,41 @@
                 </div>
               </div>
             </div>
+          </div> -->
+
+          <div class="row featured__filter">
+            <div class="col-md-3" ng-repeat="sp in listSanPhamShop">
+              <div class="card mb-3">
+                <img ng-if="sp.imgage" src="/assets/ảnh giày/{{sp.imgage}}" class="card-img-top" alt="...">
+                <div class="card-body d-flex flex-column justify-content-between text-center">
+                  <p ng-if="sp.tenSanPham" class="card-text">{{sp.tenSanPham}}</p>
+                  <div class="text-center">
+                    <h5 ng-show="sp.giaGiam != sp.giaBan">
+                      {{sp.giaGiamGia < 0 ? 0 : sp.giaGiamGia.toLocaleString('vi-VN')}}đ <strike style="color: red;">
+                        {{sp.giaBan.toLocaleString('vi-VN')}}đ</strike>
+                    </h5>
+                    <h5 ng-show="sp.giaGiam == sp.giaBan">
+                      {{sp.giaBan.toLocaleString('vi-VN')}}đ
+                    </h5>
+                    <a class="btn btn-square btn-danger abc" ng-if="sp.tenSanPham"  href="#/shop/detail/{{sp.tenSanPham}}"><span>Xem sản
+                        phẩm</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <nav aria-label="Page navigation example" style="margin-left: 400px" ng-if="listSanPhamShop.length != 0">
             <ul class="pagination">
               <li class="page-item" ng-show="pageNumber > 0">
-                <a class="page-link" href="" ng-click="previous()"><img src="/assets/images/chevron-left.svg" height="15px" alt=""></a>
+                <a class="page-link" href="" ng-click="previous()"><img src="/assets/images/chevron-left.svg"
+                    height="15px" alt=""></a>
               </li>
               <li class="page-item">
                 <a class="page-link">{{pageNumber + 1}}</a>
               </li>
               <li class="page-item" ng-show="showNextButton">
-                <a class="page-link" href="" ng-click="nextPage()"><img src="/assets/images/chevron-right.svg" height="15px" alt=""></a>
+                <a class="page-link" href="" ng-click="nextPage()"><img src="/assets/images/chevron-right.svg"
+                    height="15px" alt=""></a>
               </li>
             </ul>
           </nav>

@@ -365,19 +365,6 @@
     </div>
   </header>
   </section>
-  <!-- <section class="hero hero-normal">
-  <div class="container">
-    <div class="row" style="background-color: #f8f9fa; height: 40px; margin-bottom: -150px;">
-
-      <div class="col-md-4 mt-2" style="font-style: italic;font-size: smaller;"> <a class="a_color"
-          href="/src/customer/index-customer.html#/home">TRANG CHỦ</a> 
-          / <a class="a_color" href="/src/customer/index-customer.html#/shop">SHOP</a>
-          / <a class="a_color" href="" style="font-weight: bolder;">THANH TOÁN</a>
-        </div>
-
-    </div>
-  </div>
-</section> -->
   <section class="hero hero-normal mt-2">
     <div class="container">
       <div class="row" style="background-color: #f3f5f7; height: 40px; margin-bottom: -150px;">
@@ -389,180 +376,9 @@
       </div>
     </div>
   </section>
-  <section class="shoping-cart spad">
+  <section>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="shoping__cart__table relative overflow-x-auto shadow-md sm:rounded-lg">
-            <!-- 1 product -->
-            <div ng-if="products.length === 1">
-              <table>
-                <thead>
-                  <tr>
-                    <th class="shoping__product" style="padding-left: 10px;">Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Tổng tiền</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="product in products">
-                    <td class="shoping__cart__item">
-                      <img style="margin-left: 10px;" width="80px" src="/assets/ảnh giày/{{product.tenimage}}"
-                        alt="{{product.tensanpham}}" />
-                      <h7>{{product.tensanpham}}</h7>
-                    </td>
-                    <td class="shoping__cart__price">
-                      <div ng-show="product.dongiakhigiam != null">
-                        {{product.dongiakhigiam | number:0}}đ
-                        <span style="text-decoration: line-through;color: crimson"><strike> {{product.giaban |
-                            number:0}}đ <br></strike> </span>
-                      </div>
-                      <div ng-show="product.dongiakhigiam == null">
-                        {{product.giaban | number:0}}đ
-                      </div>
-                    </td>
-                    <td class="shoping__cart__quantity" style="padding-left: 50px;">
-                      <div class="quantity">
-                        <div class="pro-qty">
-                          <button class="dec qtybtn" ng-click="changeQuantity(product, 'decrease')">-</button>
-                          <input type="text" ng-model="product.soluong" readonly />
-                          <button class="inc qtybtn" ng-click="changeQuantity(product, 'increase')">+</button>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="shoping__cart__total">
-
-                      <div ng-show="product.dongiakhigiam != null">
-                        {{product.dongiakhigiam * product.soluong | number:0}}đ
-                      </div>
-                      <div ng-show="product.dongiakhigiam == null">
-                        {{product.giaban * product.soluong | number:0}}đ
-                      </div>
-                    </td>
-                    <td class="shoping__cart__item__close">
-                      <span style="padding-right: 15px;" ng-click="deleteProduct(product.id)">x</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- many product -->
-            <div ng-if="products.length > 1">
-              <table style="display: block;
-              height: 375px; 
-              overflow-y: auto; ">
-                <thead>
-                  <tr>
-                    <th class="shoping__product" style="padding-left: 10px;">Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
-                    <th>Tổng Tiền</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="product in products">
-                    <td class="shoping__cart__item">
-                      <img style="margin-left: 10px;" width="80px" ng-src="/assets/ảnh giày/{{product.tenimage}}"
-                        alt="{{product.tensanpham}}" />
-                      <h7>{{product.tensanpham}}</h7>
-                    </td>
-                    <td class="shoping__cart__price">
-                      <div ng-show="product.dongiakhigiam != null">
-                        {{product.dongiakhigiam | number:0}}đ
-                        <span style="text-decoration: line-through;color: crimson"><strike> {{product.giaban |
-                            number:0}}đ <br></strike> </span>
-                      </div>
-                      <div ng-show="product.dongiakhigiam == null">
-                        {{product.giaban | number:0}}đ
-                      </div>
-                    </td>
-                    <td class="shoping__cart__quantity" style="padding-left: 50px;">
-                      <div class="quantity">
-                        <div class="pro-qty">
-                          <button class="dec qtybtn" ng-click="changeQuantity(product, 'decrease')">-</button>
-                          <input type="text" ng-model="product.soluong" />
-                          <button class="inc qtybtn" ng-click="changeQuantity(product, 'increase')">+</button>
-                        </div>
-                      </div>
-                    </td>
-                    <td class="shoping__cart__total">
-
-                      <div ng-show="product.dongiakhigiam != null">
-                        {{product.dongiakhigiam * product.soluong | number:0}}đ
-                      </div>
-                      <div ng-show="product.dongiakhigiam == null">
-                        {{product.giaban * product.soluong | number:0}}đ
-                      </div>
-                    </td>
-                    <td class="shoping__cart__item__close">
-                      <span style="padding-right: 15px;" class="icon_close" ng-click="deleteProduct(product.id)"></span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- no product -->
-            <div ng-if="products.length === 0">
-              <p style="text-align: center;">No data</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <!-- <a href="/src/customer/index-customer.html#/shop" class="flex items-center">
-            <button type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              <svg style="margin-right: 1px;" class="w-3.5 h-3.5 me-2" aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
-                <path
-                  d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
-              </svg>
-              Mua thêm
-            </button>
-          </a> -->
-          <button
-            class="inline-flex items-center px-4 py-2 bg-red-600 transition transform-gpu hover:scale-105 hover:bg-red-700 text-white text-sm font-medium rounded-md"
-            ng-click="clearCart()">
-            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-5 w-5 mr-2"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-            Xóa tất cả
-          </button>
-        </div>
-        <div class="col-md-7">
-          <!-- <button
-            class="inline-flex items-center px-4 py-2 bg-red-600 transition transform-gpu hover:scale-105 hover:bg-red-700 text-white text-sm font-medium rounded-md"
-            ng-click="clearCart()">
-            <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" class="h-5 w-5 mr-2"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-            Xóa tất cả
-          </button> -->
-        </div>
-        <div class="col-md-2">
-          <a href="/src/customer/index-customer.html#/check-out2" class="flex items-center">
-            <button type="button"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              <svg style="margin-right: 1px;" class="w-3.5 h-3.5 me-2" aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 21">
-                <path
-                  d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
-              </svg>
-              Thanh toán
-            </button>
-          </a>
-        </div>
-      </div>
-      <!-- check out row begin -->
-      <!-- <div class="row mt-5">
+      <div class="row mt-5">
         <h4 class=" fw-semibold">Chi tiết thanh toán</h4>
       </div>
       <br />
@@ -680,9 +496,9 @@
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- modal  -->
-      <!-- <div class="modal fade" id="discountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      <div class="modal fade" id="discountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -693,6 +509,7 @@
               </button>
             </div>
             <div class="modal-body">
+              <!-- Danh sách mã giảm giá -->
               <table class="table">
                 <tr ng-repeat="voucher in vouchers">
                   <td style="width: 150px">
@@ -723,55 +540,7 @@
             </div>
           </div>
         </div>
-      </div> -->
-      <!-- close modal  -->
-      <!-- Footer Section Begin -->
-      <!-- <footer class="footer spad" style="background-color:white;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="footer__about">
-                <div class="footer__about__logo">
-                  <a href="#"><img
-                      src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png" alt=""
-                      width="119px" /></a>
-                </div>
-                <ul>
-                  <li>Địa chỉ: 07 - Trịnh Văn Bô - Bắc Từ Liêm - Hà Nội</li>
-                  <li>Phone: 098.328.0968</li>
-                  <li>Email: beeshoepoly@gmail.com</li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-              <div class="footer__widget">
-                <h6>Dịch vụ khách hàng</h6>
-                <ul>
-                  <li><a href="/src/customer/index-customer.html#/chinh-sach-van-chuyen">Chính sách vận chuyển
-                      và giao nhận</a></li>
-                  <li><a href="/src/customer/index-customer.html#/chinh-sach-doi-tra">Chính sách đổi, trả và
-                      bảo hành</a></li>
-                  <li><a href="/src/customer/index-customer.html#/chinh-sach-bao-mat">Chính sách bảo mật</a>
-                  </li>
-                  <li><a href="/src/customer/index-customer.html#/chinh-sach-xu-ly-khieu-nai">Chính sách xử lý
-                      khiếu nại</a></li>
-                </ul>
-
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-12">
-              <div class="footer__widget">
-                <h6>Hỗ trợ</h6>
-                <ul>
-                  <li><a href="/src/customer/index-customer.html#/huong-dan">Hướng dẫn đặt hàng</a></li>
-                  <li><a href="/src/customer/index-customer.html#/hinh-thuc-thanh-toan">Hình thức thanh toán</a></li>
-                  <li><a href="/src/customer/index-customer.html#/lien-he">Liên hệ</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer> -->
+      </div>
       <style>
         .footer {
           font-family: 'Roboto', sans-serif;
