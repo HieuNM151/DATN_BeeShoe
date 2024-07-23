@@ -412,14 +412,13 @@
                       </a>
                       <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list" ng-if="!isLoggedIn">
                         <li><a href="#/login">Đăng nhập</a></li>
-                        <li><a href="#!dang-ky">Đăng ký</a></li>
+                        <li><a href="#/register">Đăng ký</a></li>
                       </ul>
                     
                       <!-- Menu cho người đã đăng nhập -->
                       <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list" ng-if="isLoggedIn">
                         <li><a href="#/dia-chi">Thông tin</a></li>
                         <li><a href="#/don-hang">Danh sách hóa đơn</a></li>
-                        <li><a href="#!doi-mat-khau">Đổi mật khẩu</a></li>
                         <li style="cursor: pointer;"><a ng-click="logout()" ng-if="isLoggedIn">Đăng xuất</a></li>
                       </ul>
                     </li>
@@ -623,79 +622,74 @@
   </section>
 
   <!-- Footer Section Begin -->
-  <footer class="footer spad" style="background-color:white;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6">
-          <div class="footer__about">
-            <div class="footer__about__logo">
-              <a href="#"><img src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png"
-                  alt="" width="119px" /></a>
+  <footer>
+    <div class="footer-bottom">
+      <div class="form-site">
+        <div class="footer-content row">
+          <div class="col-12 col-sm-12 col-md-6">
+            <div class="information">
+              <a href=""><img src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png" style="height: 150px;" alt="">
+              </a>
+              <div class="contact1">
+                <div class="contac-lh">
+                  <div class="icon-contac"><img src="/assets/image/phone.png" alt=""></div>
+                  <div class="content-lh">098.328.0968</div>
+                </div>
+                <div class="contac-lh">
+                  <div class="icon-contac">
+                    <img src="/assets/image/mail.png" alt="">
+                  </div>
+                  <div class="content-lh">beeshoepoly@gmail.com</div>
+                </div>
+                <div class="contac-lh">
+                  <div class="icon-contac">
+                    <img src="/assets/image/map.png" alt="">
+                  </div>
+                  <div class="content-lh">
+                    07 - Trịnh Văn Bô - Bắc Từ Liêm - Hà Nội
+                  </div>
+                </div>
+              </div>
             </div>
-            <ul>
-              <li>Địa chỉ: 07 - Trịnh Văn Bô - Bắc Từ Liêm - Hà Nội</li>
-              <li>Phone: 098.328.0968</li>
-              <li>Email: beeshoepoly@gmail.com</li>
-            </ul>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-          <div class="footer__widget">
-            <h6>Dịch vụ khách hàng</h6>
-            <ul>
-              <li><a href="/src/customer/index-customer.html#/chinh-sach-van-chuyen">Chính sách vận chuyển
-                  và giao nhận</a></li>
-              <li><a href="/src/customer/index-customer.html#/chinh-sach-doi-tra">Chính sách đổi, trả và
-                  bảo hành</a></li>
-              <li><a href="/src/customer/index-customer.html#/chinh-sach-bao-mat">Chính sách bảo mật</a>
-              </li>
-              <li><a href="/src/customer/index-customer.html#/chinh-sach-xu-ly-khieu-nai">Chính sách xử lý
-                  khiếu nại</a></li>
-            </ul>
+          <div class="col-6 col-sm-6 col-sd-3 col-xl-2">
+            <div class="nationnal">
+              <h5 class="title-national">Cửa hàng</h5>
+              <a href="" class="conten-nationnal">Trang chủ</a>
+              <a href="" class="conten-nationnal">Về chúng tôi</a>
+              <a href="" class="conten-nationnal">Tin tức</a>
+              <a href="" class="conten-nationnal">Tuyển dụng</a>
+              <a href="" class="conten-nationnal">Chính sách</a>
+            </div>
+          </div>
+          <div class="col-6 col-sm-6 col-sd-3 col-xl-2">
+            <div class="nationnal">
+              <h5 class="title-national">Dịch vụ</h5>
+              <a href="/src/customer/index-customer.html#/chinh-sach-van-chuyen" class="conten-nationnal">Chính sách vận chuyển
+                và giao nhận</a>
+              <a href="/src/customer/index-customer.html#/chinh-sach-doi-tra" class="conten-nationnal">Chính sách đổi, trả và
+                bảo hành</a>
+              <a href="/src/customer/index-customer.html#/chinh-sach-bao-mat" class="conten-nationnal">Chính sách bảo mật</a>
+              <a href="/src/customer/index-customer.html#/chinh-sach-xu-ly-khieu-nai" class="conten-nationnal">Chính sách xử lý
+                khiếu nại</a>
+              <a href="/src/customer/index-customer.html#/huong-dan" class="conten-nationnal">Hướng dẫn đặt hàng</a>
+              <a href="/src/customer/index-customer.html#/hinh-thuc-thanh-toan" class="conten-nationnal">Hình thức thanh toán</a>
 
+            </div>
           </div>
-        </div>
-        <div class="col-lg-4 col-md-12">
-          <div class="footer__widget">
-            <h6>Hỗ trợ</h6>
-            <ul>
-              <li><a href="/src/customer/index-customer.html#/huong-dan">Hướng dẫn đặt hàng</a></li>
-              <li><a href="/src/customer/index-customer.html#/hinh-thuc-thanh-toan">Hình thức thanh toán</a></li>
-              <li><a href="/src/customer/index-customer.html#/lien-he">Liên hệ</a></li>
-            </ul>
+          <div class="col-6 col-sm-6 col-sd-3 col-xl-2">
+            <div class="folow">
+              <h5 class="title-forlow ">Theo dõi chúng tôi</h5>
+              <a href="" class="img-folow"><img src="/assets/image/Vector.png" alt=""></a>
+              <a href="" class="img-folow"><img src="/assets/image/X.png" alt=""></a>
+              <a href="" class="img-folow"><img src="/assets/image/LinkedIn.png" alt=""></a>
+              <a href="" class="img-folow"><img src="/assets/image/Youtube.png" alt=""></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </footer>
-  <style>
-    .footer {
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      background-color: white;
-      padding: 40px 0;
-      margin-top: 20px;
-      border-top: 1px solid #ddd;
-    }
-
-    .footer ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .footer ul li {
-      margin-bottom: 10px;
-    }
-
-    .footer a {
-      text-decoration: none;
-      color: #007bff;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
 
   <script src="/js/jquery-3.3.1.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>
