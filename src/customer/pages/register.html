@@ -260,111 +260,143 @@
 </style>
 
 <body>
-    <header class="header" style="background: #F3F6FA">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="#"><img
-                                src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png"
-                                style="width: 125px" alt="" /></a>
-                    </div>
+    <header class="header-area">
+        <!-- main header start -->
+        <div class="main-header d-none d-lg-block">
+  
+          <!-- header middle area start -->
+          <div class="header-main-area sticky">
+            <div class="container">
+              <div class="row align-items-center position-relative">
+                <!-- start logo area -->
+                <div class="col-lg-2">
+                  <div class="logo">
+                    <a href="#!trang-chu" style="   
+                                 font-size: 19px;
+                                font-weight: 200;">
+                      <img style="width: 50%;"
+                        src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png" alt="">
+                    </a>
+                  </div>
                 </div>
-                <div class="col-lg-6">
-                    <nav class="header__menu">
+                <!-- start logo area -->
+  
+                <!-- main menu area start -->
+                <div class="col-lg-8 position-static">
+                  <div class="main-menu-area">
+                    <div class="main-menu">
+                      <!-- main menu navbar start -->
+                      <nav class="desktop-menu">
                         <ul>
-                            <li >
-                              <a href="#/home">Trang chủ</a>
-                            </li>
-                            <li class="active">
-                              <a href="#/shop">Sản phẩm</a>
-                            </li>
-                          </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li class="open-cart">
-                                <a href="#/check-out"><i class="fa fa-shopping-bag"></i>
-                                    <span>{{quantity_all.tongSoLuong}}</span></a>
-                                <div class="container-cart" style="position: absolute; z-index: 9999; right: 70px;">
-                                    <div class="shopping-cart" style="max-height: 270px;overflow-y: auto;">
-                                        <div class="row" ng-repeat="product in products">
-                                            <div class="col-md-4" style="margin-top: 5px; margin-bottom: 5px">
-                                                <img width="300px" ng-src="{{product.tenimage}}"
-                                                    alt="{{product.tensanpham}}" />
-                                                <p style="font-size: 0.7em; margin: 0"></p>
-                                                <hr />
-                                            </div>
-                                            <div class="col-md-8">
-                                                <span style="font-size: 0.7em; margin: 0">{{product.tensanpham}}</span>
-                                                <div ng-show="product.dongiakhigiam != null">
-                                                    {{product.dongiakhigiam | number:0}}đ
-                                                    <span style="text-decoration: line-through;color: crimson"><strike>
-                                                            {{product.giaban |
-                                                            number:0}}đ <br></strike> </span>
-                                                </div>
-                                                <div ng-show="product.dongiakhigiam == null">
-                                                    {{product.giaban | number:0}}đ
-                                                </div>
-                                                <p style="font-size: 0.7em; margin: 0">
-                                                    Số lượng :{{product.soluong}}
-                                                </p>
-                                                <span class="icon_close" ng-click="deleteProduct(product.id)"></span>
-                                                <hr />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-2">
-                                            <span style="font-weight: bolder;margin-left: 30px;"
-                                                class="main-color-text">Total:</span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <span
-                                                style="color: rgb(91, 80, 80); font-weight: bolder;margin-left: 30px;">{{totalAmount}}VNĐ</span>
-                                        </div>
-                                    </div>
-                                    <a href="#/check-out" style="width: 80%; margin-left: 30px;" class="button">CHECK
-                                        OUT</a>
-                                </div>
-                            </li>
-                            <li class="account-hover" ng-controller="loginCutomController">
-                                <div class="header__top__right__auth">
-                                    <a href="#"><i class="fa fa-user">{{ loggedInUsername }}</i></a>
-                                    <div class="account-form">
-                                        <a href="#/dia-chi" class="d-flex align-items-center gap-2 dropdown-item"
-                                            ng-if="isLoggedIn">
-                                            <i class="fa fa-user fs-6"></i>
-                                            <p class="mb-0 fs-3">Tài khoản của tôi</p>
-                                        </a>
-                                        <a href="#/don-hang" class="d-flex align-items-center gap-2 dropdown-item"
-                                            ng-if="isLoggedIn">
-                                            <i class="ti ti-list-check fs-6"></i>
-                                            <p class="mb-0 fs-3">Đơn hàng</p>
-                                        </a>
-                                        <a href="#/login-register" class="d-flex align-items-center gap-2 dropdown-item"
-                                            ng-if="!isLoggedIn">
-                                            <i class="ti ti-list-check fs-6"></i>
-                                            <p class="mb-0 fs-3">Đăng nhập</p>
-                                        </a>
-                                        <a ng-click="logout()" href="#"
-                                            class="d-flex align-items-center gap-2 dropdown-item" ng-if="isLoggedIn">
-                                            <i class="fa fa-sign-out fs-6"></i>
-                                            <p class="mb-0 fs-3">Đăng xuất</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
+                          <li class="active btn-nav" id="home" ng-click="changeActive(0)"><a href="#home"
+                              style="font-weight: 600;">Trang
+                              chủ</a>
+                          </li>
+  
+                          <li class="static btn-nav" id="men_shoes" ng-click="changeActive(1)" style="font-weight: 600;">
+                            <a href="#shop" style="font-weight: 600;">Sản phẩm
+                            </a>
+  
+                          </li>
                         </ul>
+                      </nav>
+                      <!-- main menu navbar end -->
                     </div>
+                  </div>
                 </div>
+                <!-- main menu area end -->
+  
+                <!-- mini cart area start -->
+                <div class="col-lg-2">
+                  <div class="header-configure-wrapper">
+                    <div class="header-configure-area">
+                      <ul class="nav justify-content-end">
+                        <li>
+                          <a href="#" class="offcanvas-btn">
+                            <i class="ion-ios-search-strong"></i>
+                          </a>
+                        </li>
+                        <li class="user-hover" ng-controller="loginCutomController">
+                          <a>
+                            <i class="ti ti-user"></i>
+                          </a>
+                          <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list" ng-if="!isLoggedIn">
+                            <li><a href="#/login">Đăng nhập</a></li>
+                            <li><a href="#!dang-ky">Đăng ký</a></li>
+                          </ul>
+                        
+                          <!-- Menu cho người đã đăng nhập -->
+                          <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list" ng-if="isLoggedIn">
+                            <li><a href="#/dia-chi">Thông tin</a></li>
+                            <li><a href="#/don-hang">Danh sách hóa đơn</a></li>
+                            <li><a href="#!doi-mat-khau">Đổi mật khẩu</a></li>
+                            <li style="cursor: pointer;"><a ng-click="logout()" ng-if="isLoggedIn">Đăng xuất</a></li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a class="minicart-btn" href="#/check-out" ng-click="openMiniCart()">
+                            <i class="ion-bag"></i>
+                            <div class="notification" id="quantity_of_cart_mobile">{{quantity_all.tongSoLuong}}</div>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- mini cart area end -->
+              </div>
             </div>
+          </div>
+          <!-- header middle area end -->
         </div>
-    </header>
+  
+        <!-- <div class="offcanvas-minicart-wrapper" ng-show="showMiniCart">
+          <div class="minicart-inner">
+            <div class="offcanvas-overlay"></div>
+            <div class="minicart-inner-content">
+              <div class="minicart-close">
+                <i class="ion-android-close"></i>
+              </div>
+              <div class="minicart-content-box">
+                <div class="minicart-item-wrapper">
+                  <ul>
+                    <li class="minicart-item" ng-repeat="product in products">
+                      <div class="minicart-thumb">
+                        <a href="product-details.html">
+                          <img src="/assets/ảnh giày/{{product.tenimage}}" alt="{{product.tensanpham}}">
+                        </a>
+                      </div>
+                      <div class="minicart-content">
+                        <h3 class="product-name">
+                          <a href="product-details.html">{{product.tensanpham}}</a>
+                        </h3>
+                        <p>
+                          <span class="cart-quantity">{{product.soluong}} <strong>&times;</strong></span>
+                          <span class="cart-price">{{product.dongiakhigiam || product.giaban | number}}đ</span>
+                        </p>
+                      </div>
+                      <button class="minicart-remove" ng-click="deleteProduct(product.id)"><i class="ion-android-close"></i></button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="minicart-pricing-box">
+                  <ul>
+                    <li class="total">
+                      <span>Tổng tiền</span>
+                      <span><strong>{{totalAmount | number}}đ</strong></span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="minicart-button">
+                  <a href="#/check-out" style="background-color: #3a4863;"><i class="fa fa-shopping-cart"></i>Đi đến giỏ hàng</a>
+                  <a href="#/check-out" style="background-color: #3a4863;"><i class="fa fa-share"></i> Thanh toán</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+  
+      </header>
     <br>
     <div style="width: 875px;margin-left: 600px;">
         <div class="col-lg-6">
