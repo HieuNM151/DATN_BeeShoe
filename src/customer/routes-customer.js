@@ -32,10 +32,10 @@ myAppCustom.config(function ($routeProvider, $locationProvider) {
       templateUrl: "./pages/thankyou2.html",
       controller: "CartController",
     })
-    // .when("/don-hang", {
-    //   templateUrl: "./pages/don-hang.html",
-    //   controller: "donHangController",
-    // })
+    .when("/don-hang", {
+      templateUrl: "./pages/don-hang.html",
+      controller: "donHangController",
+    })
     .when("/login", {
       templateUrl: "/src/customer/pages/login.html",
       controller: "loginCutomController",
@@ -48,14 +48,10 @@ myAppCustom.config(function ($routeProvider, $locationProvider) {
       templateUrl: "./pages/detail-don-hang.html",
       controller: "detailDonHangController",
     })
-    // .when("/dia-chi", {
-    //   templateUrl: "./pages/dia-chi.html",
-    //   controller: "DiaChiController",
-    // })
-    // .when("/dia-chi", {
-    //   templateUrl: "./pages/dia-chi.html",
-    //   controller: "DiaChiController",
-    // })
+    .when("/dia-chi", {
+      templateUrl: "./pages/dia-chi.html",
+      controller: "DiaChiController",
+    })
     .when("/lien-he", {
       templateUrl: "./pages/lien-he.html",
     })
