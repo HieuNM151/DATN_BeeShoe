@@ -703,10 +703,6 @@
                           <span class="header-title">Khách thanh toán</span>
                         </div>
                         <div class="col-lg-7">
-                          <!-- <button class="btn btn-outline-primary" ng-if="listCart.length !== 0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal5" style="margin-left: 80px">
-                            <img src="/assets/images/debit-card.png" width="25px" alt="" srcset="" />
-                          </button> -->
                           <!-- thanh toán -->
                           <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
@@ -928,7 +924,7 @@
                   </div>
                   <!-- modal voucher -->
                 </div>
-                <!-- <div class="omni-layout-card--section-section">
+                <div class="omni-layout-card--section-section">
                   <div class="omni-layout-card--item-stack-cover">
                     <div class="omni-layout-card--item-stack fill">
                       <span class="header-title">Giao hàng</span>
@@ -940,7 +936,7 @@
                       <label for="switch"></label>
                     </div>
                   </div>
-                </div> -->
+                </div>
                 <div class="omni-layout-card--section-section">
                   <div class="omni-layout-card--item-stack-cover">
                     <div class="omni-layout-card--item-stack fill">
@@ -985,6 +981,18 @@
                       <span class="header-title">{{(tongTienHang - orderDetailCounter.tienGiamGia +
                         (tienGiao ? + tienGiao :
                         0)).toLocaleString('vi-VN')}}đ</span>
+                      <input hidden ng-model="requestData.tongTien" type="text" ng-value="tongTienHang" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="omni-layout-card--section-section">
+                  <div class="omni-layout-card--item-stack-cover">
+                    <div class="omni-layout-card--item-stack fill">
+                      <span class="header-title">Tiền thừa</span>
+                    </div>
+                    <div class="omni-layout-card--item-stack fill text-right">
+                      <span class="header-title">{{ tienThuaTraKhach.toLocaleString('vi-VN')}}đ</span>
                       <input hidden ng-model="requestData.tongTien" type="text" ng-value="tongTienHang" />
                     </div>
                   </div>
