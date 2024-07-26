@@ -289,9 +289,11 @@
       width: 100%;
       object-fit: cover;
     }
+
     span {
-    color: #FFF;
-  }
+      color: #FFF;
+    }
+
     .card-text {
       max-height: 50px;
       height: 50px;
@@ -339,6 +341,7 @@
     .card {
       position: relative;
     }
+
     .a_color {
       color: black;
     }
@@ -410,13 +413,15 @@
                       <a>
                         <i class="ti ti-user"></i>
                       </a>
-                      <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list" ng-if="!isLoggedIn">
+                      <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list"
+                        ng-if="!isLoggedIn">
                         <li><a href="#/login">Đăng nhập</a></li>
                         <li><a href="#/register">Đăng ký</a></li>
                       </ul>
-                    
+
                       <!-- Menu cho người đã đăng nhập -->
-                      <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list" ng-if="isLoggedIn">
+                      <ul style="padding: 10px!important;padding-left: 16px!important;" class="dropdown-list"
+                        ng-if="isLoggedIn">
                         <li><a href="#/dia-chi">Thông tin</a></li>
                         <li><a href="#/don-hang">Danh sách hóa đơn</a></li>
                         <li style="cursor: pointer;"><a ng-click="logout()" ng-if="isLoggedIn">Đăng xuất</a></li>
@@ -490,13 +495,13 @@
     <div class="container">
       <div class="row" style="background-color: #f8f9fa; height: 40px; margin-bottom: -150px;">
         <div class="col-md-4 mt-2" style="font-size: smaller;"> <a class="a_color"
-            href="/src/customer/index-customer.html#/home">TRANG CHỦ</a> 
-            / <a class="a_color" href="/src/customer/index-customer.html#/shop">SẢN PHẨM</a>
-            / <a class="a_color" href="" style="font-weight: bolder;">SẢN PHẨM CHI TIẾT</a>
-          </div>
+            href="/src/customer/index-customer.html#/home">TRANG CHỦ</a>
+          / <a class="a_color" href="/src/customer/index-customer.html#/shop">SẢN PHẨM</a>
+          / <a class="a_color" href="" style="font-weight: bolder;">SẢN PHẨM CHI TIẾT</a>
+        </div>
       </div>
     </div>
-  </section>  
+  </section>
   <section class="product-details spad" style="margin-top: -10px;">
     <div class="container">
       <div class="row">
@@ -514,8 +519,8 @@
             <div class="product__details__price">
               <div ng-show="detailProduct.giaGiamGia != detailProduct.giaBan">
                 <h5>
-                  {{detailProduct.giaGiamGia < 0 ? 0 : detailProduct.giaGiamGia.toLocaleString('vi-VN')}}đ
-                  <strike style="color: red;">{{detailProduct.giaBan.toLocaleString('vi-VN')}}đ</strike>
+                  {{detailProduct.giaGiamGia < 0 ? 0 : detailProduct.giaGiamGia.toLocaleString('vi-VN')}}đ <strike
+                    style="color: red;">{{detailProduct.giaBan.toLocaleString('vi-VN')}}đ</strike>
                 </h5>
               </div>
               <div ng-show="detailProduct.giaGiamGia == detailProduct.giaBan">
@@ -553,25 +558,29 @@
             <!-- <div class="quantity"> -->
             <div class="row" style="margin-top: -10px;">
               <div class="col-3 mb-3 quantity-container" style="display: flex; align-items: center;">
-                <button class="btn-decrement" style="height: 30px;" ng-click="changeQuantity(-1)" ng-disabled="soluong <= 1">-</button>
+                <button class="btn-decrement" style="height: 30px;" ng-click="changeQuantity(-1)"
+                  ng-disabled="soluong <= 1">-</button>
                 <input placeholder="Nhập số lượng" type="number" style="height: 30px;"
                   class="next-input text-center max-width-10px position-relative quantity-decimal ng-pristine ng-valid ng-not-empty ng-valid-min ng-valid-max ng-touched quantity-input"
-                  ng-model="soluong" min="1" readonly />
-                <button class="btn-increment" style="height: 30px;" ng-click="changeQuantity(1)">+</button>
-                <style>.btn-increment, .btn-decrement {
-                  border: 1px solid #ddd;
-                  border-radius: 0px;
-                  padding: 5px 10px;
-                  background-color: #ffffff;
-                  color: #000000;
-                  cursor: pointer;
-                  margin: 1px;
-                  width: 20%;
-                }
+                  ng-model="soluong" min="1" max="3" />
+                  <!-- readonly -->
+                <button class="btn-increment" style="height: 30px;" ng-click="changeQuantity(1)" ng-disabled="soluong >= 3">+</button>
+                <style>
+                  .btn-increment,
+                  .btn-decrement {
+                    border: 1px solid #ddd;
+                    border-radius: 0px;
+                    padding: 5px 10px;
+                    background-color: #ffffff;
+                    color: #000000;
+                    cursor: pointer;
+                    margin: 1px;
+                    width: 20%;
+                  }
                 </style>
-            </div>
-            
-            
+              </div>
+
+
               <div class="col-6">
                 <p class="mt-4">Số lượng sản phẩm còn lại: {{quantity.soluong}}</p>
               </div>
@@ -628,7 +637,8 @@
         <div class="footer-content row">
           <div class="col-12 col-sm-12 col-md-6">
             <div class="information">
-              <a href=""><img src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png" style="height: 150px;" alt="">
+              <a href=""><img src="/assets/images/z4754468708043_e3218b27549165452a995a7d4cbe6705_preview_rev_1.png"
+                  style="height: 150px;" alt="">
               </a>
               <div class="contact1">
                 <div class="contac-lh">
@@ -665,15 +675,20 @@
           <div class="col-6 col-sm-6 col-sd-3 col-xl-2">
             <div class="nationnal">
               <h5 class="title-national">Dịch vụ</h5>
-              <a href="/src/customer/index-customer.html#/chinh-sach-van-chuyen" class="conten-nationnal">Chính sách vận chuyển
+              <a href="/src/customer/index-customer.html#/chinh-sach-van-chuyen" class="conten-nationnal">Chính sách vận
+                chuyển
                 và giao nhận</a>
-              <a href="/src/customer/index-customer.html#/chinh-sach-doi-tra" class="conten-nationnal">Chính sách đổi, trả và
+              <a href="/src/customer/index-customer.html#/chinh-sach-doi-tra" class="conten-nationnal">Chính sách đổi,
+                trả và
                 bảo hành</a>
-              <a href="/src/customer/index-customer.html#/chinh-sach-bao-mat" class="conten-nationnal">Chính sách bảo mật</a>
-              <a href="/src/customer/index-customer.html#/chinh-sach-xu-ly-khieu-nai" class="conten-nationnal">Chính sách xử lý
+              <a href="/src/customer/index-customer.html#/chinh-sach-bao-mat" class="conten-nationnal">Chính sách bảo
+                mật</a>
+              <a href="/src/customer/index-customer.html#/chinh-sach-xu-ly-khieu-nai" class="conten-nationnal">Chính
+                sách xử lý
                 khiếu nại</a>
               <a href="/src/customer/index-customer.html#/huong-dan" class="conten-nationnal">Hướng dẫn đặt hàng</a>
-              <a href="/src/customer/index-customer.html#/hinh-thuc-thanh-toan" class="conten-nationnal">Hình thức thanh toán</a>
+              <a href="/src/customer/index-customer.html#/hinh-thuc-thanh-toan" class="conten-nationnal">Hình thức thanh
+                toán</a>
 
             </div>
           </div>
