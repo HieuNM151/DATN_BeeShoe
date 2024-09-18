@@ -992,7 +992,7 @@
                       <span class="header-title">Tiền thừa</span>
                     </div>
                     <div class="omni-layout-card--item-stack fill text-right">
-                      <span class="header-title">{{ tienThuaTraKhach.toLocaleString('vi-VN')}}đ</span>
+                      <span class="header-title">{{ (tienThuaTraKhach < 0 ? 0 : tienThuaTraKhach).toLocaleString('vi-VN') }}đ</span>
                       <input hidden ng-model="requestData.tongTien" type="text" ng-value="tongTienHang" />
                     </div>
                   </div>

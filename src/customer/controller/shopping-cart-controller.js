@@ -3,66 +3,52 @@ myAppCustom.controller(
   "CartController",
   function ($scope, $http, $window, $location, $route, $routeParams) {
     function loadToTals() {
-      if (!idgh) {
+      if (idgh) {
+        // Gọi API và cập nhật giá trị totalAmount
+        $http
+          .get(
+            "http://localhost:8080/api/gio-hang-chi-tiet-not-login/total-amount?idgh=" +
+            idgh
+          )
+          .then(function (response) {
+            // Lấy giá trị tổng tiền từ phản hồi API
+            $scope.totalAmount = response.data[0].tongSoTien;
+            $window.localStorage.setItem("totalAmount", $scope.totalAmount);
+            var totalAmount = parseFloat(
+              $window.localStorage.getItem("totalAmount")
+            );
+            $scope.giamGiaVoucher = 0;
+            // Lấy giá trị từ localStorage
+            var hinhThucGiam = $window.localStorage.getItem("hinhthucgiam");
+            var giatrigiam = parseFloat(
+              $window.localStorage.getItem("giatrigiam")
+            );
+
+            // Kiểm tra hình thức giảm giá
+            if (hinhThucGiam === "1") {
+              // Giảm giá theo tỷ lệ %
+              console.log("Giảm giá theo tỷ lệ %");
+              $scope.giamGiaVoucher = (totalAmount * giatrigiam) / 100;
+            }
+            if (hinhThucGiam === "2") {
+              // Giảm giá theo giá trị VNĐ
+              console.log("Giảm giá theo giá trị VNĐ");
+              $scope.giamGiaVoucher = giatrigiam;
+            }
+            if (!$scope.giamGiaVoucher) {
+              $scope.tongCong = totalAmount;
+            } else {
+              // Tính tổng cộng dựa trên giá trị giảm giá
+              $scope.tongCong = totalAmount - $scope.giamGiaVoucher;
+            }
+          })
+          .catch(function (error) {
+            console.error("Lỗi khi gọi API: " + error);
+          });
+      } else {
         console.log("No cart!!!");
-        return;
       }
-
-      // Gọi API và cập nhật giá trị totalAmount
-      $http.get("http://localhost:8080/api/gio-hang-chi-tiet-not-login/total-amount?idgh=" + idgh)
-        .then(function (response) {
-          if (!response.data || !response.data[0]) {
-            console.error("Invalid API response");
-            return;
-          }
-
-          // Lấy giá trị tổng tiền từ phản hồi API
-          $scope.totalAmount = parseFloat(response.data[0].tongSoTien);
-          $window.localStorage.setItem("totalAmount", $scope.totalAmount);
-
-          var totalAmount = parseFloat($window.localStorage.getItem("totalAmount"));
-          if (isNaN(totalAmount)) {
-            console.error("Invalid total amount");
-            return;
-          }
-
-          $scope.giamGiaVoucher = 0;
-
-          // Lấy giá trị từ localStorage
-          var hinhThucGiam = $window.localStorage.getItem("hinhthucgiam");
-          var giatrigiam = parseFloat($window.localStorage.getItem("giatrigiam"));
-
-          if (isNaN(giatrigiam)) {
-            console.error("Invalid discount value");
-            return;
-          }
-
-          // Kiểm tra hình thức giảm giá
-          if (hinhThucGiam === "1") {
-            // Giảm giá theo tỷ lệ %
-            console.log("Giảm giá theo tỷ lệ %");
-            $scope.giamGiaVoucher = (totalAmount * giatrigiam) / 100;
-          } else if (hinhThucGiam === "2") {
-            // Giảm giá theo giá trị VNĐ
-            console.log("Giảm giá theo giá trị VNĐ");
-            $scope.giamGiaVoucher = giatrigiam;
-          } else {
-            console.error("Unknown discount type");
-            return;
-          }
-
-          // Tính tổng cộng dựa trên giá trị giảm giá
-          $scope.tongCong = totalAmount - $scope.giamGiaVoucher;
-
-          // Định dạng lại tổng tiền và tổng cộng
-          $scope.totalAmount = totalAmount.toFixed(0);
-          $scope.tongCong = $scope.tongCong.toFixed(0);
-        })
-        .catch(function (error) {
-          console.error("Lỗi khi gọi API: " + error);
-        });
-    }
-
+    } //close loadToTal()
 
     loadToTals();
     // Hàm thay đổi số lượng sản phẩm
@@ -523,19 +509,20 @@ myAppCustom.controller(
 
     //check out
     $scope.thanhToanVnPay = function () {
-      // Kiểm tra thông tin cần thiết
+      // Kiểm tra xem các trường thông tin cần thiết đã được nhập đầy đủ không
       $scope.isHoTenValid = !!$scope.hoTen;
       $scope.isSoDienThoaiValid = !!$scope.soDienThoai;
       $scope.isEmailValid = !!$scope.email;
       $scope.isDiaChiValid = !!$scope.diaChi;
-    
       if ($scope.soDienThoai) {
-        $scope.isSoDienThoaiFormat = validateSoDienThoaiFormat($scope.soDienThoai);
+        $scope.isSoDienThoaiFormat = validateSoDienThoaiFormat(
+          $scope.soDienThoai
+        );
       }
       if ($scope.email) {
         $scope.isEmailFormat = validateEmailFormat($scope.email);
       }
-    
+
       if (
         !$scope.isHoTenValid ||
         !$scope.isSoDienThoaiValid ||
@@ -551,21 +538,22 @@ myAppCustom.controller(
         });
         return;
       }
-    
-      // Hiển thị hộp thoại xác nhận
+
+      // Hiển thị hộp thoại xác nhận của SweetAlert2
       Swal.fire({
         title: "Xác nhận",
         text: "Bạn có chắc chắn muốn đặt đơn hàng?",
         icon: "question",
         showCancelButton: true,
-        cancelButtonText: "Hủy bỏ",
+        cancelButtonText: "Hủy bỏ", // Thay đổi từ "Cancel" thành "Hủy bỏ"
         cancelButtonColor: "#d33",
         confirmButtonColor: "#3085d6",
-        confirmButtonText: "Xác nhận",
+        confirmButtonText: "Xác nhận", // Thay đổi từ "Yes" thành "Có"
         reverseButtons: true,
       }).then((result) => {
         if (result.isConfirmed) {
           if (idgh) {
+            // Nếu người dùng đồng ý, tiếp tục với quá trình xử lý
             var data = {
               hoTen: $scope.hoTen,
               soDienThoai: $scope.soDienThoai,
@@ -575,50 +563,67 @@ myAppCustom.controller(
               gioHangChiTietList: gioHangChiTietList,
               idGiamGia: idGiamGiaVoucher,
             };
-    
+
             data.tongTien = $scope.tongCong;
             data.tienGiamGia = $scope.giamGiaVoucher;
-    
-            // Xác thực và gửi yêu cầu
-            var apiUrl = token
-              ? "http://localhost:8080/api/checkout-not-login/thanh-toan-login"
-              : "http://localhost:8080/api/checkout-not-login/thanh-toan";
-    
-            $http({
-              method: "POST",
-              url: apiUrl,
-              data: data,
-              headers: token ? { Authorization: "Bearer " + token } : {}
-            }).then(
-              function (response) {
-                if (token) {
-                  $window.localStorage.setItem("idHoaDonLogin", response.data);
+
+            if (token) {
+              $http
+                .post(
+                  "http://localhost:8080/api/checkout-not-login/thanh-toan-login",
+                  data,
+                  config
+                )
+                .then(
+                  function (response) {
+                    $window.localStorage.setItem(
+                      "idHoaDonLogin",
+                      response.data
+                    );
+                    localStorage.removeItem("idgiohang");
+                    localStorage.removeItem("idVoucher");
+                    localStorage.removeItem("giatrigiam");
+                    localStorage.removeItem("hinhthucgiam");
+                    localStorage.removeItem("maVoucher");
+                    localStorage.removeItem("totalAmount");
+                    localStorage.removeItem("listCart");
+                    localStorage.removeItem("giatritoithieudonhang");
+                    $scope.Vnpay(data.tongTien)
+                  },
+                  function (error) {
+                    console.log(error);
+                  }
+                );
+            } else {
+              // Gửi dữ liệu đến máy chủ
+              $http({
+                method: "POST",
+                url: "http://localhost:8080/api/checkout-not-login/thanh-toan",
+                data: data,
+              }).then(
+                function (response) {
+                  // Xử lý response nếu cần thiết
+                  localStorage.removeItem("idgiohang");
+                  localStorage.removeItem("idVoucher");
+                  localStorage.removeItem("giatrigiam");
+                  localStorage.removeItem("hinhthucgiam");
+                  localStorage.removeItem("maVoucher");
+                  localStorage.removeItem("totalAmount");
+                  localStorage.removeItem("listCart");
+                },
+                function (error) {
+                  console.log(error);
                 }
-                localStorage.removeItem("idgiohang");
-                localStorage.removeItem("idVoucher");
-                localStorage.removeItem("giatrigiam");
-                localStorage.removeItem("hinhthucgiam");
-                localStorage.removeItem("maVoucher");
-                localStorage.removeItem("totalAmount");
-                localStorage.removeItem("listCart");
-                localStorage.removeItem("giatritoithieudonhang");
-    
-                // Tiến hành thanh toán
-                $scope.Vnpay(data.tongTien);
-              },
-              function (error) {
-                console.log(error);
-              }
-            );
-          } else {
+              );
+            }
+          } else if (!idgh) {
             Swal.fire("Giỏ hàng chưa có sản phẩm !", "", "error");
           }
         } else {
           Swal.fire("Đã hủy đặt đơn hàng", "", "error");
         }
       });
-    };
-    
+    }; //close check out
 
     // voucher here
     $scope.vouchers = [];
